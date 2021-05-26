@@ -61,7 +61,22 @@
     border: 2px solid black;
     width: 400px;
     height: 400px;
+    display: none;
+    position: absolute;
+    top: 10px;
+    background-color: white;
+    margin: 50px;
     
+}
+.cross {
+    
+    float: right;
+    padding: 1px 5px;
+    font-weight: bold;
+    font-size: 16px;
+    color: grey;
+    font-family: monospace;
+
 }
 .list-box{
     border: 2px solid black;
