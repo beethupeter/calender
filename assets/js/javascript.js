@@ -57,24 +57,30 @@ function createCalander(date){
     var previousStartDay = new Date(date.getFullYear(), date.getMonth(), 0).getDay();
     var previousLastDate = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
     for(i = previousLastDate - previousStartDay ;i<= previousLastDate;i++){
+        var tempDate = new Date(date.getFullYear(), date.getMonth()-1, i);
         array.push({
             "day": i,
+            'date': tempDate.getFullYear() + '-' + tempDate.getMonth() + '-' + tempDate.getDate(),
             "is_current": false,
         });
 
     }
     var endDate = new Date(date.getFullYear(),date.getMonth() + 1, 0).getDate();
     for(i=1;i<=endDate;i++){
+        var tempDate = new Date(date.getFullYear(), date.getMonth(), i);
         array.push({
             "day": i,
+            'date': tempDate.getFullYear() + '-' + tempDate.getMonth() + '-' + tempDate.getDate(),
             "is_current": true,
         });
     }
     var nextStartDay = new Date(date.getFullYear(),date.getMonth() + 1, 0).getDay();
     var numberOfDay = 6;
     for(i=1;i<=(numberOfDay - nextStartDay); i++){
+        var tempDate = new Date(date.getFullYear(), date.getMonth()+1, i);
         array.push({
             "day": i,
+            'date': tempDate.getFullYear() + '-' + tempDate.getMonth() + '-' + tempDate.getDate(),
             "is_current": false,
         });
     }
@@ -96,7 +102,7 @@ function createCalander(date){
         if (!item.is_current) {
             div.classList.add("outside-date");
         }
-        div.onclick = function() { showPopUp(item.day) };
+        div.onclick = function() { showPopUp(item.date) };
         currentParent.appendChild(div);
     });
     parentElement.appendChild(currentParent);
